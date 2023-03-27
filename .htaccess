@@ -1,0 +1,16 @@
+RewriteEngine on
+#arquivos
+RewriteCond %{REQUEST_FILENAME} !-f
+#diretorios
+RewriteCond %{REQUEST_FILENAME} !-d
+#^(.*)$ = qualquer coisa depois do dominio
+#^(.*)$-> ^ = inicio
+#^(.*)$-> . = qualquer caracter
+#^(.*)$-> * = pode ter e pode não ter
+#^(.*)$-> () = grupo
+#^(.*)$-> $ = fim
+#index.php = direcionar para o arquivo
+#?url = criação de variável
+#=$1 = grupo(), no caso o primeiro
+#NC = no case sensititve
+RewriteRule ^(.*)$ index.php?url=$1[NC]
